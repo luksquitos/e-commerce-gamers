@@ -19,3 +19,11 @@ class Product(models.Model):
         """
         ...
     available_quantity.fget.short_description = "Quantidade disponível"
+    
+    def __str__(self) -> str:
+        return self.name
+    
+    class Meta:
+        verbose_name = "Produto"
+        verbose_name_plural = "Produtos"
+        ordering = ["name"]
