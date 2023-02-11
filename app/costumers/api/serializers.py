@@ -23,13 +23,14 @@ class CostumerSerializer(serializers.ModelSerializer):
         fields = "__all__"
         
 
-
 class PurchaseProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = PurchaseProduct
         fields = "__all__"
 
-
+#TODO
+# Criar outros atributos para valor da compra
+# quando os dados forem retornados. 
 class PurchaseSerializer(serializers.ModelSerializer):
     products = PurchaseProductSerializer(read_only=True)
 

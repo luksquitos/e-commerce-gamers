@@ -22,6 +22,16 @@ class Purchase(models.Model):
     date_time_purchase = models.DateTimeField("Data e hora de compra", auto_now_add=True)
     date_time_received = models.DateTimeField("Data e hora de recebimento", null=True)
     
+    def __str__(self) -> str:
+        string = (
+            f"Compra {self.id} - {self.costumer.name}"
+        )
+        return string
+    
+    class Meta:
+        verbose_name = "Compra"
+        verbose_name_plural = "Compras"    
+    
 
 class PurchaseProduct(models.Model):
     purchase = models.ForeignKey(Purchase, on_delete=models.DO_NOTHING)
@@ -29,7 +39,7 @@ class PurchaseProduct(models.Model):
     
     #TODO
     # O método save será sobrescrito para 
-    # tratar a quantidade presente?
+    # tratar a quantidade do Product ?
     # melhor ser pelo viewset
     
 
