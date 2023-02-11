@@ -9,16 +9,16 @@ class Product(models.Model):
     quantity = models.PositiveSmallIntegerField("Quantidade", help_text="estoque")
     image = models.ImageField("Imagem", upload_to="product-image", blank=True)
 
-    #TODO 
-    # Property que retorna quantidade 
-    # restante para venda.
+    # A quantidade disponível não pode ser uma property
+    # porque como que iria funcionar a reposição do 
+    # estoque ?
+    # Assim que uma compra for realizada
+    # um número deverá ser tirado
+    # do total. 
+    
     @property
-    def available_quantity(self):
-        """
-        Quantity available for sale.
-        """
-        ...
-    available_quantity.fget.short_description = "Quantidade disponível"
+    def is_available(self):
+        return self.quantity > 0
     
     def __str__(self) -> str:
         return self.name
