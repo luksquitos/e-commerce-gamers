@@ -11,7 +11,7 @@ class Product(models.Model):
 
     #TODO 
     # Property que retorna quantidade 
-    # mínima para venda.
+    # restante para venda.
     @property
     def available_quantity(self):
         """
