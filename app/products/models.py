@@ -8,13 +8,6 @@ class Product(models.Model):
     score = models.PositiveSmallIntegerField("Pontuação")
     quantity = models.PositiveSmallIntegerField("Quantidade", help_text="estoque")
     image = models.ImageField("Imagem", upload_to="product-image", blank=True)
-
-    # A quantidade disponível não pode ser uma property
-    # porque como que iria funcionar a reposição do 
-    # estoque ?
-    # Assim que uma compra for realizada
-    # um número deverá ser tirado
-    # do total. 
     
     @property
     def is_available(self):
