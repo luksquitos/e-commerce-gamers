@@ -23,7 +23,7 @@ class PurchaseViewset(viewsets.ModelViewSet):
         )
         return qs
     
-    
+
     @action(detail=False, methods=["post"])
     def post_cart(self, request):
         """
@@ -76,7 +76,6 @@ class PurchaseViewset(viewsets.ModelViewSet):
         )
         
         return Response({"msg": msg}, status=200)
-
 
 
     def all_products_available(self, products_in_cart: dict):

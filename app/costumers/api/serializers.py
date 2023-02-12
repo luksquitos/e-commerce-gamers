@@ -34,13 +34,16 @@ class PurchaseProductSerializer(serializers.ModelSerializer):
  
 class PurchaseSerializer(serializers.ModelSerializer):
     products = PurchaseProductSerializer(read_only=True, many=True)
-
     
-    #TODO
-    # Encontrar o método que é executado 
-    # quando há um "patch" em alguma compra
-    # Esse método irá adicionar a data que 
-    # o cliente recebeu o Pedido
+    def update(self, instance, validated_data):
+        from datetime import datetime
+        current_time = datetime.now()
+        
+        instance.received = validated_data.get('received')
+        instance.date_time_received = current_time
+        instance.save()
+        
+        return instance
     
     class Meta:
         model = Purchase
