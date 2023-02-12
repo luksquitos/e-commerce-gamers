@@ -20,12 +20,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 from rest_framework.routers import DefaultRouter
 from products.api.viewsets import ProductViewset
+from costumers.api.viewsets import CostumerViewset, PurchaseViewset
 
 
 
 router = DefaultRouter()
 router.register('products', ProductViewset)
-
+router.register('costumers', CostumerViewset)
+router.register('costumers/purchases', PurchaseViewset)
 
 urlpatterns = [
     path('', include(router.urls)),

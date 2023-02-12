@@ -7,6 +7,7 @@ class Costumer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField("Nome", max_length=100)
     email = models.EmailField("Email")
+    address = models.CharField("Endereço", max_length=400)
     
     def __str__(self) -> str:
         return self.name
