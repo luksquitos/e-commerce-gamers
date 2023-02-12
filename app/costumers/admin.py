@@ -2,43 +2,39 @@ from django.contrib import admin
 from costumers.models import Costumer, Purchase, PurchaseProduct
 
 
-#FIXME
-# Encontrar uma forma de impedir que o superuser
-# criado por alguém consiga adicionar 
-# qualquer um destes. 
+class AdminNoPermissionsMixin:
+    """
+    This mixin removes the 
+    permissions of a Admin class
+    """
+    def has_add_permission(self, request):
+        return False
+    
+    def has_change_permission(self, request):
+        return False
+    
+    def has_delete_permission(self, request):
+        return False
 
-class PurchaseProductInline(admin.StackedInline):
+
+class PurchaseProductInline(AdminNoPermissionsMixin, admin.StackedInline):
     model = PurchaseProduct
     extra = 0
-    readonly_fields = ["product"]
     
-
-class PurchaseInline(admin.StackedInline):
+    
+class PurchaseInline(AdminNoPermissionsMixin, admin.StackedInline):
     model = Purchase
     extra = 0
-    readonly_fields = [
-        "id", 
-        "received", 
-        "costumer", 
-        "date_time_purchase", 
-        "date_time_received"
-    ]
+
+
 
 
 @admin.register(Costumer)
-class CostumerAdmin(admin.ModelAdmin):
-    readonly_fields = ["user", "name", "email"]
+class CostumerAdmin(AdminNoPermissionsMixin, admin.ModelAdmin):
     inlines = [PurchaseInline]
 
 
 @admin.register(Purchase)
-class PurchaseAdmin(admin.ModelAdmin):
-    readonly_fields = [
-        "id", 
-        "received", 
-        "costumer", 
-        "date_time_purchase", 
-        "date_time_received"
-    ]
+class PurchaseAdmin(AdminNoPermissionsMixin, admin.ModelAdmin):
     inlines = [PurchaseProductInline]
     
