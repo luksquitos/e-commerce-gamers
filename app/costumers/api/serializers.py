@@ -31,12 +31,17 @@ class PurchaseProductSerializer(serializers.ModelSerializer):
         fields = ["product"]
         depth = 1
 
-#TODO
-# Criar outros atributos para valor da compra
-# quando os dados forem retornados. 
+ 
 class PurchaseSerializer(serializers.ModelSerializer):
     products = PurchaseProductSerializer(read_only=True, many=True)
 
+    
+    #TODO
+    # Encontrar o método que é executado 
+    # quando há um "patch" em alguma compra
+    # Esse método irá adicionar a data que 
+    # o cliente recebeu o Pedido
+    
     class Meta:
         model = Purchase
         fields = "__all__"

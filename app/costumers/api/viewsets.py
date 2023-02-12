@@ -15,15 +15,13 @@ class CostumerViewset(viewsets.ModelViewSet):
 
 class PurchaseViewset(viewsets.ModelViewSet):
     serializer_class = PurchaseSerializer
-    queryset = Purchase.objects.all()
     permission_classes = [IsAuthenticated]
     
-    #FIXME
-    # Essa função deve retornar apenas as compras
-    # do usuário autenticado
-    
     def get_queryset(self):
-        return super().get_queryset()
+        qs = Purchase.objects.filter(
+            costumer__user=self.request.user
+        )
+        return qs
     
     
     @action(detail=False, methods=["post"])
@@ -38,8 +36,8 @@ class PurchaseViewset(viewsets.ModelViewSet):
         
         if isinstance(products_unavailable, list):
             msg = (
-                "Unable to finish your order."
-                "The following items are unavailable"
+                "Não foi possível finalizar seu pedido. "
+                "Os itens a seguir estão indisponíveis."
             )
             return Response(
                 data={
@@ -55,7 +53,7 @@ class PurchaseViewset(viewsets.ModelViewSet):
             costumer=costumer,
             address=costumer.address
         )
-        deliver = 0
+        deliver = 1
         purchase_price = 0
 
         for product_dict in products_in_cart:
@@ -72,9 +70,9 @@ class PurchaseViewset(viewsets.ModelViewSet):
         new_purchase.save()
         
         msg = (
-            "Compra realizada"
-            f"O total foi de R${new_purchase.purchase_price} reais"
-            f"Frete: {new_purchase.deliver}"
+            "Compra realizada. "
+            f"O total foi de R${new_purchase.purchase_price} reais. "
+            f"Frete: R${new_purchase.deliver} reais"
         )
         
         return Response({"msg": msg}, status=200)
