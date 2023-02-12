@@ -6,12 +6,13 @@ from costumers.models import Costumer, Purchase, PurchaseProduct
 class CostumerSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 
-    def create(self, **validated_data):
+    def create(self, validated_data):
         password = validated_data.pop('password')
         email = validated_data.get('email')
         
         user = User.objects.create(username=email)
         user.set_password(password)
+        user.save()
         
         costumer = Costumer.objects.create(
             user=user, **validated_data
@@ -20,7 +21,7 @@ class CostumerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Costumer
-        fields = "__all__"
+        exclude = ("user",)
         
 
 class PurchaseProductSerializer(serializers.ModelSerializer):

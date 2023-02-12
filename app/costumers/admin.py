@@ -7,13 +7,13 @@ class AdminNoPermissionsMixin:
     This mixin removes the 
     permissions of a Admin class
     """
-    def has_add_permission(self, request):
+    def has_add_permission(self, request, obj=None):
         return False
     
-    def has_change_permission(self, request):
+    def has_change_permission(self, request, obj=None):
         return False
     
-    def has_delete_permission(self, request):
+    def has_delete_permission(self, request, obj=None):
         return False
 
 
@@ -31,7 +31,14 @@ class PurchaseInline(AdminNoPermissionsMixin, admin.StackedInline):
 
 @admin.register(Costumer)
 class CostumerAdmin(AdminNoPermissionsMixin, admin.ModelAdmin):
+    list_display = ["id", "name", "amount_purchases"]
+    list_display_links = ["name"]
     inlines = [PurchaseInline]
+
+    @admin.display(description="Quantidade de compras")
+    def amount_purchases(self, obj):
+        purchases = Purchase.objects.filter(costumer=obj)
+        return purchases.count()
 
 
 @admin.register(Purchase)

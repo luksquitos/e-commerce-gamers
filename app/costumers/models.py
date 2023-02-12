@@ -4,7 +4,7 @@ from products.models import Product
 
 
 class Costumer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     name = models.CharField("Nome", max_length=100)
     email = models.EmailField("Email")
     address = models.CharField("Endereço", max_length=400)
@@ -36,7 +36,7 @@ class Purchase(models.Model):
 
 class PurchaseProduct(models.Model):
     purchase = models.ForeignKey(Purchase, on_delete=models.DO_NOTHING)
-    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
+    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING, related_name="products")
     
     #TODO
     # O método save será sobrescrito para 

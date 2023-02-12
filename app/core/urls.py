@@ -27,7 +27,7 @@ from costumers.api.viewsets import CostumerViewset, PurchaseViewset
 router = DefaultRouter()
 router.register('products', ProductViewset)
 router.register('costumers', CostumerViewset)
-router.register('costumers/purchases', PurchaseViewset)
+router.register('purchases', PurchaseViewset)
 
 urlpatterns = [
     path('', include(router.urls)),

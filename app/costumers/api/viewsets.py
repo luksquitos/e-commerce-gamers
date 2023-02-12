@@ -12,7 +12,7 @@ class CostumerViewset(viewsets.ModelViewSet):
 class PurchaseViewset(viewsets.ModelViewSet):
     serializer_class = PurchaseSerializer
     queryset = Purchase.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
     
     #FIXME
     # Essa função deve retornar apenas as compras
