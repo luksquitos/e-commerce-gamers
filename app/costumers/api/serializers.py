@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from costumers.models import Costumer, Purchase, PurchaseProduct
 
 
+
 class CostumerSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 
@@ -27,13 +28,14 @@ class CostumerSerializer(serializers.ModelSerializer):
 class PurchaseProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = PurchaseProduct
-        fields = "__all__"
+        fields = ["product"]
+        depth = 1
 
 #TODO
 # Criar outros atributos para valor da compra
 # quando os dados forem retornados. 
 class PurchaseSerializer(serializers.ModelSerializer):
-    products = PurchaseProductSerializer(read_only=True)
+    products = PurchaseProductSerializer(read_only=True, many=True)
 
     class Meta:
         model = Purchase

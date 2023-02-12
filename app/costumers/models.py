@@ -20,6 +20,9 @@ class Costumer(models.Model):
 class Purchase(models.Model):
     received = models.BooleanField("Compra entregue?")
     costumer = models.ForeignKey(Costumer, on_delete=models.DO_NOTHING)
+    purchase_price = models.DecimalField("Preço da compra", max_digits=8, decimal_places=2, null=True)
+    deliver = models.DecimalField("Frete", max_digits=4, decimal_places=2, null=True)
+    address = models.CharField("Endereço de entrega", max_length=400, null=True)
     date_time_purchase = models.DateTimeField("Data e hora de compra", auto_now_add=True)
     date_time_received = models.DateTimeField("Data e hora de recebimento", null=True)
     
@@ -29,18 +32,33 @@ class Purchase(models.Model):
         )
         return string
     
+    
+    def create_product_by_quantity(self, product, quantity: int):
+        """
+        This function is used by 'post_cart' action,
+        in purchase viewset, so it can create
+        multiple instances of a product for the 
+        same purchase.
+        And subtract 1 from the total in stock.
+        Returns the total.
+        """
+        products_price = 0
+        
+        for _ in range(quantity):
+            self.products.create(
+                product=product
+            )
+            product.quantity -= 1
+            product.save()
+            products_price += product.price
+        
+        return products_price
+    
     class Meta:
         verbose_name = "Compra"
         verbose_name_plural = "Compras"    
     
 
 class PurchaseProduct(models.Model):
-    purchase = models.ForeignKey(Purchase, on_delete=models.DO_NOTHING)
-    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING, related_name="products")
-    
-    #TODO
-    # O método save será sobrescrito para 
-    # tratar a quantidade do Product ?
-    # melhor ser pelo viewset
-    
-
+    purchase = models.ForeignKey(Purchase, on_delete=models.DO_NOTHING, related_name="products")
+    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
