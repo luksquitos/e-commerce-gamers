@@ -60,5 +60,16 @@ class Purchase(models.Model):
     
 
 class PurchaseProduct(models.Model):
-    purchase = models.ForeignKey(Purchase, on_delete=models.DO_NOTHING, related_name="products")
-    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
+    purchase = models.ForeignKey(
+        Purchase, on_delete=models.DO_NOTHING, related_name="products"
+    )
+    product = models.ForeignKey(
+        Product, on_delete=models.DO_NOTHING, verbose_name="Produto"
+    )
+    
+    def __str__(self) -> str:
+        return str(self.id)
+    
+    class Meta:
+        verbose_name = "Produto"
+        verbose_name_plural = "Produtos"
