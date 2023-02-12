@@ -25,6 +25,7 @@ class PurchaseProductInline(AdminNoPermissionsMixin, admin.StackedInline):
 class PurchaseInline(AdminNoPermissionsMixin, admin.StackedInline):
     model = Purchase
     extra = 0
+    readonly_fields = ["date_time_purchase"]
 
 
 
@@ -43,5 +44,6 @@ class CostumerAdmin(AdminNoPermissionsMixin, admin.ModelAdmin):
 
 @admin.register(Purchase)
 class PurchaseAdmin(AdminNoPermissionsMixin, admin.ModelAdmin):
+    readonly_fields = ["date_time_purchase"]
     inlines = [PurchaseProductInline]
     
