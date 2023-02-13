@@ -2,7 +2,7 @@
 
 ## Introdução
 
-Esse projeto é uma API de um e-commerce de jogos, em que os gamers de todo o país poderão desfrutar dos melhores preços. 
+Esse projeto é uma API de um e-commerce de jogos, em que os gamers de todo o país poderão desfrutar dos melhores preços do mercado. 
 Ela foi construída utilizando o Framework Django, Django Rest Framework,
 o banco de dados Postgres e conteirizada com Docker.
 Por se tratar apenas de uma API, este projeto **NÃO** inclui Front-end.
