@@ -42,11 +42,13 @@ Verifique se o admin conta com a categoria de Clientes e Produtos. Verifique tam
 - `localhost:8000/admin/`: Endpoint para a administração, para acessa-la basta utilizar o superuser criado nas Configurações Iniciais. Esse superuser poderá **APENAS** criar novos produtos para seu e-commerce, visto que informações de Compras e Clientes estão disponível apenas para visualização. 
 
 - `localhost:8000/api/token/`: Endpoint com restrição ao método POST, receberá em seu corpo os atributos **username** e **password**, sendo estes o **email** e **senha** cadastrados em `localhost:8000/costumers/`. Retornará os tokens JWT **refresh** e **access** para serem usados no Postman ou Insomnia.
+
 **Obs**: Para Insomnia: Na aba "auth", selecione Bearer Token, com prefixo Bearer e o token obtido **SEM ASPAS**
 
 - `localhost:8000/products/`: Possui a listagem completa dos produtos. Este endpoint só permite o método **"GET"**. No Viewset List, fornecido pelo Django Rest Framework, há o botão **Filtros**. Dentre os filtros, há ordenação dos produtos por Nome, preço e pontuação. Também tem filtros por preços maiores/menores que o valor informado. O campo Pesquisa, irá pesquisar o produto pelo Nome. 
 
 - `localhost:8000/costumers/`: Esse endpoint lista todos os usuários cadastrados no sistema e também cria novos. Todos os campos mostrados no endpoint devem ser preenchidos para que o usuário possa se autenticar. 
+
 **Obs: O usuário cadastrado não possui permissão para entrar no admin**
 
 - `localhost:8000/purchases/`: Esse endpoint é apenas para usuários autenticados. Para se autenticar olhe o endpoint `localhost:8000/api/token/` . Após estar autenticado, este endpoint irá listar todas as compras feitas por este usuário.
@@ -54,6 +56,7 @@ Verifique se o admin conta com a categoria de Clientes e Produtos. Verifique tam
 - `localhost:8000/purchases/pk/`: Esse endpoint receberá uma chave primária da compra de um usuário autenticado permitindo que tal objeto possa ser alterado. Uma alteração relevante está descrita em [examples/received.json](./examples/received.json)
 
 - `localhost:8000/purchases/post_cart/`: Esse endpoint recebe apenas o método post. Ele é o responsável por receber o checkout do carrinho de compras vindo do Front-end. O modelo de envio do JSON está no diretório [examples/post_cart.json](./examples/post_cart.json).
+
 **Obs: Lembre-se que para fazer o post, o usuário precisa estar autenticado.**
   
 
@@ -75,7 +78,7 @@ Como este projeto não inclui front-end, toda lógica para criar um carrinho din
 Há alguns comentários, em inglês, pelo código, explicando um pouco o que cada método escrito e sobrescrito se propõe a fazer.
 
 
-Obrigado pela atenção, gamer.
+Obrigado pela atenção, gamer.****
 
 
 ## Contato

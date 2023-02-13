@@ -6,6 +6,7 @@ Esse modelo deve ser usado no corpo da requisição, juntamente com a autentica�
 
 - product: primary key do produto
 - quantity: Quantidade do produto
+
 **Sugestão: Os produtos de pk's = 10, 11 e 12 possuem pouca quantidade em estoque. Foram criados para testar o que acontece quando um cliente tenta comprar uma quantidade maior do que há na base de dados.**
 
 
