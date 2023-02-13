@@ -4,9 +4,6 @@ from django.utils.safestring import mark_safe
 
 
 
-#TODO
-# Adicionar quantidade disponível ao
-# list_display
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ["id", "name", "price", "score", "quantity"]

@@ -18,6 +18,10 @@ class PurchaseViewset(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
+        """
+        Returns only Purchases 
+        from a specific user.
+        """
         qs = Purchase.objects.filter(
             costumer__user=self.request.user
         )
@@ -27,8 +31,11 @@ class PurchaseViewset(viewsets.ModelViewSet):
     @action(detail=False, methods=["post"])
     def post_cart(self, request):
         """
-        Essa action é para receber o carrinho que
-        foi armazenado no navegador do cliente 
+        This action will receive the cart 
+        from the Client Browser and process
+        the order.
+        If the products are unavailable, 
+        the order won't be processed.
         """
         costumer = Costumer.objects.get(user=request.user)
         products_in_cart = request.data.get('products')

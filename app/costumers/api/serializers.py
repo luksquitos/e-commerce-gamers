@@ -36,6 +36,11 @@ class PurchaseSerializer(serializers.ModelSerializer):
     products = PurchaseProductSerializer(read_only=True, many=True)
     
     def update(self, instance, validated_data):
+        """
+        When the costumer receive his Order the field
+        'date_time_received' will be populated with 
+        the current date and time. 
+        """
         from datetime import datetime
         current_time = datetime.now()
         
