@@ -44,6 +44,9 @@ class CostumerAdmin(AdminNoPermissionsMixin, admin.ModelAdmin):
 
 @admin.register(Purchase)
 class PurchaseAdmin(AdminNoPermissionsMixin, admin.ModelAdmin):
+    list_display = ["id", "__str__", "received"]
+    list_display_links = ["__str__"]
+    list_filter = ["costumer__name", "received"]
     readonly_fields = ["date_time_purchase"]
+    search_fields = ["costumer__name"]
     inlines = [PurchaseProductInline]
-    
