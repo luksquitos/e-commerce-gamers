@@ -1,0 +1,159 @@
+[
+    {
+        "model": "products.product",
+        "pk": 1,
+        "fields": {
+            "name": "Super Mario Odyssey",
+            "price": 197.88,
+            "score": 100,
+            "description": "Explore lugares incríveis longe do Reino Cogumelo com o Mario e o novo aliado Cappy em uma imensa aventura 3D ao redor do mundo.",
+            "quantity": 30,
+            "image": "product-image/super-mario-odyssey.png"
+        }
+        
+    },
+    
+    {
+        "model": "products.product",
+        "pk": 2,
+        "fields": {
+            "name": "Call Of Duty Infinite Warfare",
+            "price": 49.99,
+            "score": 80,
+            "description": "Infinite Warfare possui três modos de jogo únicos: a campanha é um retorno às duras raízes militares da franquia, sem deixar de olhar para frente.",
+            "quantity": 20,
+            "image": "product-image/call-of-duty-infinite-warfare.png"
+        }
+        
+    },
+    {
+        "model": "products.product",
+        "pk": 3,
+        "fields": {
+            "name": "The Witcher III Wild Hunt",
+            "price": 119.5,
+            "score": 250,
+            "description": "És Geralt of Rivia, um mercenário caçador de monstros. Perante ti, encontras um continente destruído e infestado por monstros, que podes explorar como quiseres. O teu contrato: encontrar Ciri, a Criança da Profecia, uma arma viva capaz de alterar a forma do mundo.",
+            "quantity": 20,
+            "image": "product-image/the-witcher-iii-wild-hunt.png"
+        }
+        
+    },
+    {
+        "model": "products.product",
+        "pk": 4,
+        "fields": {
+            "name": "Call Of Duty WWII",
+            "price": 249.99,
+            "score": 205,
+            "description": "Call of Duty retorna às suas raízes com Call of Duty: WWII, uma experiência espetacular que redefine a Segunda Guerra Mundial para uma nova geração de jogos.",
+            "quantity": 40,
+            "image": "product-image/call-of-duty-wwii.png"
+        }
+        
+    },
+    {
+        "model": "products.product",
+        "pk": 5,
+        "fields": {
+            "name": "Mortal Kombat XL",
+            "price": 69.99,
+            "score": 150,
+            "description": "Experimente a próxima geração da maior franquia de jogos de luta. Mortal Kombat X combina uma apresentação cinematográfica sem igual com uma nova jogabilidade",
+            "quantity": 24,
+            "image": "product-image/mortal-kombat-xl.png"
+        }
+        
+    },
+    {
+        "model": "products.product",
+        "pk": 6,
+        "fields": {
+            "name": "Shards of Darkness",
+            "price": 71.94,
+            "score": 400,
+            "description": "Styx returns in a new stealth adventure! Explore and master huge open environments, sneak past or assassinate new enemies and bosses, and experiment with the new array of lethal abilities and weapons in our goblin assassin's arsenal.",
+            "quantity": 30,
+            "image": "product-image/shards-of-darkness.png"
+        }
+        
+    },
+    {
+        "model": "products.product",
+        "pk": 7,
+        "fields": {
+            "name": "Terra Média: Sombras de Mordor",
+            "price": 79.99,
+            "score": 50,
+            "description": "Lute por toda Mordor e descubra a verdade sobre o espírito que o impulsiona; conheça as origens dos Anéis do Poder, construa sua lenda e enfrente o mal de Sauron nesta nova crônica da Terra-média.",
+            "quantity": 20,
+            "image": "product-image/terra-media-sombras-de-mordor.png"
+        }
+        
+    },
+    {
+        "model": "products.product",
+        "pk": 8,
+        "fields": {
+            "name": "FIFA 18",
+            "price": 195.39,
+            "score": 325,
+            "description": "Jogar bola",
+            "quantity": 20,
+            "image": "product-image/fifa-18.png"
+        }
+        
+    },
+    {
+        "model": "products.product",
+        "pk": 9,
+        "fields": {
+            "name": "Horizon Zero Dawn",
+            "price": 115.8,
+            "score": 290,
+            "description": "Viva a experiência de Aloy em sua busca lendária para desvendar os mistérios de uma Terra do futuro controlada por máquinas. Use ataques táticos devastadores contra suas presas e explore um mundo aberto majestoso neste premiado RPG de aventura e ação!",
+            "quantity": 30,
+            "image": "product-image/horizon-zero-dawn.png"
+        }
+        
+    },
+    {
+        "model": "products.product",
+        "pk": 10,
+        "fields": {
+            "name": "Marvel Spider-Man",
+            "price": 200.00,
+            "score": 350,
+            "description": "Em Marvel's Spider-Man Remasterizado, os mundos de Peter Parker e Spider-Man entram em conflito em uma história original cheia de ação. Jogue como um Peter Parker experiente que combate as maiores ameaças do crime e vilões icônicos na Nova York da Marvel.",
+            "quantity": 2,
+            "image": "product-image/spider-man.jpg"
+        }
+        
+    },
+    {
+        "model": "products.product",
+        "pk": 11,
+        "fields": {
+            "name": "O Bom da Guerra",
+            "price": 99.90,
+            "score": 400,
+            "description": "The Gods of Olympus Have Abandoned Me!!",
+            "quantity": 1,
+            "image": "product-image/god-of-war.jpg"
+        }
+        
+    },
+    {
+        "model": "products.product",
+        "pk": 12,
+        "fields": {
+            "name": "Elden Ring",
+            "price": 249.99,
+            "score": 800,
+            "description": "O NOVO RPG DE AÇÃO E FANTASIA. Levante-se, Maculado, e seja guiado pela graça para portar o poder do Anel Prístino e se tornar um Lorde Prístino nas Terras Intermédias.",
+            "quantity": 0,
+            "image": "product-image/elden-ring.png"
+        }
+        
+    }
+]
