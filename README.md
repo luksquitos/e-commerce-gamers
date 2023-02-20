@@ -18,7 +18,10 @@ Por se tratar apenas de uma API, este projeto **NÃO** inclui Front-end.
 
 **Todos os comandos a seguir precisam ser executados no terminal do container.**
 
-- **Comando para acessar terminal do container: `docker-compose exec -it e-commerce-games bash`**
+**Comando para acessar terminal do container:**
+```
+docker exec -it e-commerce-games bash
+```
   
 - Rodar as migrates iniciais: Execute `python manage.py migrate` para que as bibliotecas padrões, arquivos estáticos sejam migrados para a base de dados. 
 
